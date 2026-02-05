@@ -4,7 +4,7 @@ import courses from '../../data/courses'
 
 function CoursesGrid() {
   return (
-    <section className='grid gap-5 md:gap-6'>
+    <section className='grid gap-5 md:gap-6 md:grid-cols-2 lg:grid-cols-3 '>
       {courses.map((item) => (
         <CoursesCard 
           img={item.thumbnail}

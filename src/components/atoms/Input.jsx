@@ -4,7 +4,7 @@ const Input = (props) => {
   return (
     <div className='relative'>
       <input 
-        className={`h-12 p-3 rounded-lg outline-none border-2 border-[#3A35411F] w-full placeholder:text-[#33333360] ${props.type === "password" && "pr-12"}`}
+        className={`h-12 p-3 rounded-lg outline-none border-2 border-[--border-color] w-full placeholder:text-[#33333360] ${props.type === "password" && "pr-12"}`}
         type={props.type}
         placeholder={props.placeholder}
       />

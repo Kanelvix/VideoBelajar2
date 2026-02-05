@@ -13,7 +13,7 @@ function SectionTitle(props) {
             lineHeight: '1',
             width: '100%'
           }}
-          className={`${props.type === "contents" ? "text-[#222325]" : "text-white"} ${props.fontSize} font-bold`}
+          className={`${props.type === "contents" ? "text-[--dark-color]" : "text-white"} ${props.fontSize} font-bold`}
         >
           {props.title}
         </h3>
@@ -29,7 +29,7 @@ function SectionTitle(props) {
         </h1>
       )}
 
-      <p className={`${props.type === "contents" ? "text-[#333333AD]" : "text-white"} text-sm md:text-base w-full`}>{props.desc}</p>
+      <p className={`${props.type === "contents" ? "" : "text-white"} font-medium text-sm md:text-base w-full`}>{props.desc}</p>
     </div>
   )
 }

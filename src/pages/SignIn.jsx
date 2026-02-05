@@ -48,15 +48,17 @@ const signinField = [
 function Signin() {
   return (
     <>
-      <Card
-        title="Pendaftaran Akun"
-        text="Yuk, daftarkan akunmu sekarang juga!"
-        fields={signinField}
-        btnText1="Daftar"
-        btnText2="Masuk"
-        options={signinField}
-        toPage="login"
-      />
+      <main className='min-h-screen flex items-center justify-center px-5'>
+        <Card
+          title="Pendaftaran Akun"
+          text="Yuk, daftarkan akunmu sekarang juga!"
+          fields={signinField}
+          btnText1="Daftar"
+          btnText2="Masuk"
+          options={signinField}
+          toPage="login"
+        />
+      </main>
     </>
   )
 }

@@ -7,14 +7,14 @@ import Price from '../atoms/Price'
 
 function CoursesCard(props) {
   return (
-    <div className='p-4 md:p-5 bg-white border-[1px] border-[#3A35411F] flex flex-col gap-2 md:gap-4 rounded-lg md:min-w-96 md:min-h-[426px]'>
+    <div className='p-4 md:p-5 bg-white border-[1px] border-[--border-color] flex flex-col gap-2 md:gap-4 rounded-lg  md:min-h-[426px] cursor-pointer hover:shadow-[0_0_10px_rgba(0,0,0,0.15)] duration-200'>
       <div className='flex items-center gap-3 md:gap-4 md:flex-col'>
 
-        <div className='size-20 md:w-[21.5rem] md:h-48 flex justify-center items-center overflow-hidden rounded-lg'>
+        <div className='size-20 md:w-full md:h-48 flex justify-center items-center overflow-hidden rounded-lg'>
           <img src={props.img} alt="" className='size-full object-cover' />
         </div>
 
-        <div className='flex flex-col flex-1 h-full justify-between'>
+        <div className='flex flex-col flex-1 h-full justify-between gap-2 md:gap-4'>
           <CourseTitle 
             title={props.title} 
             desc="Mulai transformasi dengan instruktur profesional, harga yang terjangkau, dan..." />

@@ -6,24 +6,25 @@
   font-family: 'Poppins', sans-serif;
   background-color: #FFFDF3;
   box-sizing: border-box;
-  color: #222325;
   
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-body {
-  margin: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 100vh;
+  
+  --dark-color: #222325;
+  --border-color: #3A35411F;
+  --red-color: #F64920;
+  --green-color: #3ECF4C;
+  --base-color: #333333AD;
 }
 
 p {
-  color: #333333AD;
+  color: var(--base-color);
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  width: 0;
 }
 
 /* a {

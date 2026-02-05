@@ -4,9 +4,11 @@ import CourseSection from '../components/organisms/CourseSection'
 
 function HomePage() {
   return (
-    <main className='flex flex-col items-center justify-center mt-24 mx-5 gap-6 md:gap-16'>
-      <Hero />
-      <CourseSection />
+    <main className='w-full mt-24'>
+      <div className='mx-auto flex flex-col px-5 gap-6 md:gap-16 max-w-[75rem]'>
+        <Hero />
+        <CourseSection />
+      </div>
     </main>
   )
 }

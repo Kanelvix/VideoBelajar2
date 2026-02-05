@@ -21,14 +21,16 @@ const loginField = [
 function Login() {
   return (
     <>
-      <Card
-        title="Masuk ke Akun"
-        text="Yuk, lanjutin belajarmu di videobelajar."
-        fields={loginField}
-        btnText1="Masuk"
-        btnText2="Daftar"
-        toPage="signin"
-      />
+      <main className='min-h-screen flex items-center justify-center px-5'>
+        <Card
+          title="Masuk ke Akun"
+          text="Yuk, lanjutin belajarmu di videobelajar."
+          fields={loginField}
+          btnText1="Masuk"
+          btnText2="Daftar"
+          toPage="signin"
+        />
+      </main>
     </>
   )
 }

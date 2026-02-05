@@ -4,7 +4,7 @@ import avatar from '../../assets/Avatar.png';
 function Navbar(props) {
   return (
     <>
-      <div className='flex h-20 items-center justify-between w-full bg-white border-b-[1px] border-b-[#F1F1F1] fixed top-0 right-0 left-0 px-6 shadow-lg shadow-[#22232526] md:shadow-none'>
+      <div className='flex h-20 items-center justify-between w-full bg-white border-b-[1px] border-b-[#F1F1F1] fixed top-0 right-0 left-0 px-6 shadow-lg shadow-[#22232526] md:shadow-none z-50'>
         <div className='flex items-center cursor-pointer'>
           <img src={videoBelajar} alt="Logo" className=' h-7 md:h-8' />
         </div>
