@@ -1,8 +1,8 @@
 import React from 'react'
 
-function Price() {
+function Price(props) {
   return (
-    <p className='text-[#3ECF4C] font-semibold text-2xl'>Rp 300K</p>
+    <p className='text-[#3ECF4C] font-semibold text-xl md:text-2xl'>{props.price}</p>
   )
 }
 
