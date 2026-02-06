@@ -1,5 +1,6 @@
 import videoBelajar from '../../assets/logo-videobelajar.svg';
 import avatar from '../../assets/Avatar.png';
+import menuIcon from '../../assets/menu.svg';
 
 function Navbar(props) {
   return (
@@ -9,9 +10,12 @@ function Navbar(props) {
           <img src={videoBelajar} alt="Logo" className=' h-7 md:h-8' />
         </div>
         
-        <div className={`hidden ${props.page !== "logInSignIn" && "md:flex"} items-center gap-5`}>
-          <p className='cursor-pointer duration-100 hover:text-black'>Kategori</p>
-          <img src={avatar} alt="profile" className='size-11 cursor-pointer' />
+        <div className={`flex ${props.page !== "logInSignIn" && "flex"}`}>
+          <img src={menuIcon} alt="" className='md:hidden cursor-pointer' />
+          <div className={`hidden md:flex items-center gap-5`}>
+            <p className='cursor-pointer duration-100 hover:text-black'>Kategori</p>
+            <img src={avatar} alt="profile" className='size-11 cursor-pointer' />
+          </div>
         </div>
       </div>
     </>
