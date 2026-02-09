@@ -60,20 +60,22 @@ function ProfileBox() {
     ? profileMenus.filter(item => item.name !== "Kategori")
     : profileMenus
 
-    const openCloseProfile = () => {
-      setOpen(!open);
-    }
+  const openCloseProfile = () => {
+    setOpen(!open);
+  }
 
   return (
     <div ref={menuRef}>
       {/* MOBILE */}
-      <div className='md:hidden cursor-pointer size-8 rounded-full flex justify-center items-center' onClick={openCloseProfile}>
+      <div
+        className='md:hidden cursor-pointer size-8 rounded-full flex justify-center items-center'
+        onClick={openCloseProfile}>
         <img src={menuIcon} alt="" />
       </div>
 
       {/* DESKTOP */}
       <div className='hidden md:flex items-center gap-5'>
-        <NavLink to={'/kategori'} className='text-[--base-color] cursor-pointer duration-300 hover:text-black'>Kategori</NavLink>
+        <NavLink to='/kategori' className='text-[--base-color] cursor-pointer duration-300 hover:text-black'>Kategori</NavLink>
         <img src={avatar} alt="profile" className='size-11 cursor-pointer hover:opacity-85 active:opacity-100 duration-300'
         onClick={openCloseProfile} />
       </div>
@@ -86,7 +88,7 @@ function ProfileBox() {
         ${open===true ? 'scale-y-100' : 'scale-y-0'}
         `}
       >
-        <ProfileMenu menus={filteredMenus} />
+        <ProfileMenu menus={filteredMenus} onClick={() => setOpen(false)} />
       </div>
     </div>
   )
