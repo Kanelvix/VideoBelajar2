@@ -27,17 +27,17 @@ const sideTabs = [
 
 function Sidebar() {
   return (
-    <div className='fixed bg-white border-r border-[--border-color] top-0 left-0 bottom-0 flex flex-col gap-10 justify-between'>
-      <NavLink to={'/homepage'} className='cursor-pointer py-8 px-10 border-b border-[#F5F5F5] hover:opacity-80 duration-300'>
-        <img src={videoBelajar} alt="" className='h-9 md:h-10' />
+    <div className='fixed bg-white border-r border-[--border-color] top-0 left-0 right-0 md:right-auto md:bottom-0 flex flex-col gap-3 md:gap-6 justify-between shadow-sm md:shadow-none pb-2 md:pb-0'>
+      <NavLink to={'/homepage'} className='flex justify-center cursor-pointer py-4 md:py-6 px-10 border-b border-[#F5F5F5] hover:opacity-80 duration-300 w-full'>
+        <img src={videoBelajar} alt="" className='h-7 md:h-8' />
       </NavLink>
       <div className='flex flex-col gap-2 mx-5 flex-1'>
         {sideTabs.map((item) => (
           <DashboardTabs title={item.title} key={item.title} icon={item.icon} path={item.path} />
         ))}
       </div>
-      <div className='text-center border-t border-[--light-gray-color] p-6'>
-        <p>© 2024 Admin Panel</p>
+      <div className='hidden md:block text-center border-t border-[--light-gray-color] p-4'>
+        <p className='text-sm'>© 2024 Admin Panel</p>
       </div>
     </div>
   )

@@ -9,7 +9,7 @@ function DashboardTabs( {icon, title, path} ) {
           ({isActive}) => (
             <div
               className={
-              `flex gap-3 items-center p-4 rounded-lg cursor-pointer transition-all
+              `flex gap-2 items-center py-2 px-3 md:py-3 md:px-4 rounded-lg cursor-pointer transition-all
               ${isActive
                 ? 'bg-[--light-yellow-color] shadow-sm text-[--dark-yellow-color]'
                 : 'group hover:shadow-sm hover:bg-[#F4F5FA]'
@@ -24,7 +24,7 @@ function DashboardTabs( {icon, title, path} ) {
               </svg>
               <div >
               </div>
-              <p className={`text-2xl font-semibold transition-colors ${isActive ? 'text-[--dark-yellow-color]' : 'group-hover:text-[--dark-color]'}`}>{title}</p>
+              <p className={`transition-all font-medium md:font-semibold ${isActive ? 'text-[--dark-yellow-color]' : 'group-hover:text-[--dark-color]'}`}>{title}</p>
             </div>
           )
         }
