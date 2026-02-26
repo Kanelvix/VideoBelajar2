@@ -1,5 +1,6 @@
 import React from 'react'
 import ActionBtn from '../atoms/ActionBtn'
+import Price from '../atoms/Price'
 
 function Products( {title, desc, price, mentor, role} ) {
   return (
@@ -8,7 +9,9 @@ function Products( {title, desc, price, mentor, role} ) {
         <p className='text-[--dark-color] font-medium'>{title}</p>
         <p className='text-sm '>{desc}</p>
       </td>
-      <td className='text-[--green-color] font-semibold text-nowrap p-3 md:p-4'>Rp {price}</td>
+      <td className='text-nowrap p-3 md:p-4'>
+        <Price price={price} />
+      </td>
       <td className='p-3 md:p-4'>
         <p className='font-medium'>{mentor}</p>
         <p className='text-[--secondary-color] text-sm'>{role}</p>

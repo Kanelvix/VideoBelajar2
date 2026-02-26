@@ -1,6 +1,6 @@
 import eyeIcon from '../../assets/eye-off.svg'
 
-const Input = ( {type, placeholder, required} ) => {
+const Input = ( {type, placeholder, required, value, onChange} ) => {
   return (
     <div className='relative'>
       <input 
@@ -8,6 +8,8 @@ const Input = ( {type, placeholder, required} ) => {
         type={type}
         placeholder={placeholder}
         required={required}
+        value={value}
+        onChange={onChange}
       />
       {type === "password" && <img src={eyeIcon} alt="eye-off" className='absolute top-1/2 -translate-y-1/2 right-3 cursor-pointer hover:opacity-80 duration-100' />}
     </div>

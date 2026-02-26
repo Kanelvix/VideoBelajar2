@@ -1,67 +1,165 @@
-import React from 'react'
+import React, { useReducer } from 'react'
 import ProductFormInput from '../molecules/ProductFormInput'
-import Button from '../atoms/Button'
+import ProductFormSelect from '../molecules/ProductFormSelect'
+import axios from 'axios'
 
 const inputs = [
   {
     title: "Judul Produk",
     type: "text",
     required: true,
-    placeholder: "Enter Product Title"
+    placeholder: "Enter Product Title",
+    data: "title"
   },
   {
     title: "Harga (IDR)",
     type: "number",
     required: true,
-    placeholder: "200000"
+    placeholder: "200000",
+    data: "price"
   },
   {
     title: "Nama Mentor",
     type: "text",
     required: true,
-    placeholder: "John Doe"
+    placeholder: "John Doe",
+    data: "name"
   },
   {
     title: "Role Mentor",
     type: "text",
     required: true,
-    placeholder: "Senior Frontend Developer"
+    placeholder: "Senior Frontend Developer",
+    data: "role"
   },
   {
     title: "Company",
     type: "text",
     required: false,
-    placeholder: "Tokopedia"
+    placeholder: "Tokopedia",
+    data: "company"
+  },
+  {
+    title: "Category",
+    type: "select",
+    required: false,
+    placeholder: "Desain",
+    data: "category"
+  },
+  {
+    title: "Foto Mentor",
+    type: "url",
+    required: false,
+    placeholder: "Mentor's photo URL",
+    data: "pfp"
   },
   {
     title: "URL Foto",
     type: "url",
-    required: false,
-    placeholder: "Product's photo URL"
+    required: true,
+    placeholder: "Product's photo URL",
+    data: "thumbnail"
   },
   {
     title: "Deskripsi",
     type: "text",
     required: false,
-    placeholder: "Product's details"
+    placeholder: "Product's details",
+    data: "desc"
   },
 ]
 
-function AddProductForm() {
+const defaultForm = {
+  title: "",
+  category: "bisnis",
+  desc: "",
+  price: "",
+  rating: 0,
+  totalReview: 0,
+  pfp: "",
+  thumbnail: "",
+  name: "",
+  role: "",
+  company: "",
+}
+
+const action = (state, action) => {
+  switch(action.type) {
+    case "change_field" : {
+      return {
+        ...state,
+        [action.field]: action.value,
+      };
+    }
+
+    default: {
+      return state;
+    }
+
+    case "reset" : {
+      return defaultForm;
+    }
+  }
+}
+
+function AddProductForm({fetchCourses}) {
+  const [data, setData] = useReducer(action, defaultForm);
+
+  const createCourse = async(data) => {
+    try {
+      await axios.post(
+        'https://699fde8d3188b0b1d536fff8.mockapi.io/api/v1/courses', data
+      );
+      fetchCourses();
+    } catch{
+      console.log('failed')
+    }    
+  }
+  
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    createCourse(data);
+    setData({type:"reset"})
+  }
+
   return (
-    <div className='bg-white border border-[--border-color] p-5 rounded-lg flex flex-col gap-5'>
+    <form onSubmit={handleSubmit} className='bg-white border border-[--border-color] p-5 rounded-lg flex flex-col gap-5'>
       <p className='font-semibold text-[--dark-color] text-xl py-2 border-b border-[--border-color]'>Tambah Produk Baru</p>
       <div className='grid grid-cols-1 md:grid-cols-2 gap-4 border-b pb-5'>
         {
           inputs.map((item)=>(
-            <ProductFormInput title={item.title} type={item.type} required={item.required} key={item.title} placeholder={item.placeholder} />
+            item.title === "Category" 
+            ? <ProductFormSelect
+              title={item.title}
+              key={item.title}
+              onChange={(e) =>
+                setData({
+                type: "change_field",
+                field: item.data,
+                value: e.target.value
+              })} /> 
+            : <ProductFormInput 
+              title={item.title}
+              type={item.type}
+              required={item.required}
+              key={item.title}
+              placeholder={item.placeholder}
+              value={data[item.data]}
+              onChange={(e) =>
+                setData({
+                  type: "change_field",
+                  field: item.data,
+                  value: e.target.value
+                })} 
+              />
           ))
         }
+        
       </div>
       <div className='w-max self-end'>
-        <button className='bg-[--blue-color] text-white hover:bg-[--darker-blue-color] h-10 rounded-lg font-medium text-sm md:text-base cursor-pointer w-full px-8 duration-300 active:bg-[--blue-color]'>Tambah Produk</button>
+        <button className='bg-[--blue-color] text-white hover:bg-[--darker-blue-color] h-10 rounded-lg font-medium text-sm md:text-base cursor-pointer w-full px-8 duration-300 active:bg-[--blue-color]' type='submit'>Tambah Produk</button>
       </div>
-    </div>
+    </form>
   )
 }
 
