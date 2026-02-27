@@ -1,14 +1,14 @@
 import React, { useState } from 'react'
 import ProductsRow from '../molecules/ProductRow.jsx'
-import axios from 'axios'
 import Pagination from './Pagination.jsx'
+import { api } from '../../config/api.js';
 
 function ProductList({loading, data, setEditing, fetchCourses}) {
   const [currentPage, setCurrentPage] = useState(1);
   const rowsPerPage = 5;
 
   const deleteCourse = async(id) => {
-    await axios.delete(`https://699fde8d3188b0b1d536fff8.mockapi.io/api/v1/courses/${id}`)
+    await api.delete(`/courses/${id}`)
     fetchCourses();
   }
 

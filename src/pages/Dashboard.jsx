@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import SectionTitle from '../components/molecules/SectionTitle'
 import DashboardCards from '../components/molecules/DashboardCards'
-import axios from 'axios'
+import { api } from '../config/api';
 
 function Dashboard() {
   const [loading, setLoading] = useState(true);
@@ -25,7 +25,7 @@ function Dashboard() {
   ]
 
   useEffect(() => {
-    axios.get('https://699fde8d3188b0b1d536fff8.mockapi.io/api/v1/courses')
+    api.get('/courses')
     .then((response) => {
       setData(response.data);
     }).catch((error) => {
